@@ -1,0 +1,51 @@
+// DAA practical 1- fibonacci no at exact loc and its step count
+
+public class Main
+{
+    public static int[] fib(int n)
+    {
+        int[] res = new int[2];
+        
+        if(n == 0)
+        {
+            res[0] = 0; // it is fibb no
+            res[1] = 1; // it is steps
+        }
+        else if(n == 1)
+        {
+            res[0] = 1;
+            res[1] = 2;
+        }
+        else
+        {
+            int stp = 2;
+            int f0 = 0;
+            int f1 = 1;
+            for(int i = 2;i <= n;i++)
+            {
+                int fn = f0 + f1;
+                f0 = f1;
+                f1 = fn;
+                stp++;
+            }
+            
+            res[0] = f1;
+            res[1] = stp;
+        }
+        return res;
+        
+    }
+    
+    
+
+
+	public static void main(String[] args) 
+	{
+	    int n = 20;
+		int[] r1 = fib(n);
+		
+		System.out.println("fib no is: "+r1[0]);
+		System.out.println("step count is: "+r1[1]);
+	}
+}
+
